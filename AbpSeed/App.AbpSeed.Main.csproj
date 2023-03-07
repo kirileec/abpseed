@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="7.0.2" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="7.0.2" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="7.0.2" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.MySQL" Version="7.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Api\App.Api.csproj" />
+    <ProjectReference Include="..\Volo.Abp.Swagger\Volo.Abp.Swagger.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="swagger_inject.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="swagger_theme.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
