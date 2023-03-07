@@ -39,7 +39,7 @@ namespace Api.Controllers
         /// 测试Json返回参数
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet("Text")]
         public IActionResult Text() 
         {
             return JsonData("测试内容");

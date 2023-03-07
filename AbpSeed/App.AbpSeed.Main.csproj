@@ -19,8 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="swagger_inject.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="abp.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="abp.swagger.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="swagger_theme.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

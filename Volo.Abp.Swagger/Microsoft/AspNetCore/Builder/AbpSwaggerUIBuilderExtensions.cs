@@ -20,10 +20,10 @@ namespace Volo.Abp.Swagger.Microsoft.AspNetCore.Builder
 
             return app.UseSwaggerUI(options =>
             {
-                options.InjectJavascript("ui/abp.js");
-                options.InjectJavascript("ui/abp.swagger.js");
+                options.InjectJavascript("abp.js");
+                options.InjectJavascript("abp.swagger.js");
                 options.IndexStream = () => resolver.Resolver();
-                
+
                 setupAction?.Invoke(options);
             });
         }

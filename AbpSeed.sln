@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Api", "Api\App.Api.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Volo.Abp.Swagger", "Volo.Abp.Swagger\Volo.Abp.Swagger.csproj", "{7C616E07-0E4E-4B24-AF6C-25EE9EC5DC65}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swashbuckle.AspNetCore.SwaggerUI", "Swashbuckle.AspNetCore.SwaggerUI\Swashbuckle.AspNetCore.SwaggerUI.csproj", "{29D9289F-C6B4-4D59-BFFE-08AAE541D40A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7C616E07-0E4E-4B24-AF6C-25EE9EC5DC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C616E07-0E4E-4B24-AF6C-25EE9EC5DC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C616E07-0E4E-4B24-AF6C-25EE9EC5DC65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29D9289F-C6B4-4D59-BFFE-08AAE541D40A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29D9289F-C6B4-4D59-BFFE-08AAE541D40A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29D9289F-C6B4-4D59-BFFE-08AAE541D40A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29D9289F-C6B4-4D59-BFFE-08AAE541D40A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

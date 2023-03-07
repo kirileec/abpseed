@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\App.Contracts\App.Contracts.csproj" />
+    <ProjectReference Include="..\Volo.Abp.Swagger\Volo.Abp.Swagger.csproj" />
   </ItemGroup>
 
   <ItemGroup>

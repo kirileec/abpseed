@@ -1,4 +1,5 @@
-﻿using Microsoft.OpenApi.Models;
+﻿
+using Microsoft.OpenApi.Models;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Autofac;
@@ -70,8 +71,10 @@ namespace AbpSeed
             {
                
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Abp API");
-                //options.InjectJavascript("swagger_inject.js");
-                //options.InjectStylesheet("swagger_theme.css");
+     
+                //options.InjectJavascript("abp.js");
+                //options.InjectJavascript("abp.swagger.js");
+                options.InjectStylesheet("swagger_theme.css");
                 options.EnableFilter();
                 options.EnableTryItOutByDefault();
                 options.DisplayRequestDuration();
@@ -87,13 +90,21 @@ namespace AbpSeed
             app.UseRouting();
             app.UseEndpoints(builder =>
             {
-                builder.MapGet("/swagger/swagger_inject.js", (context) =>
-                {
-                    return context.Response.SendFileAsync("swagger_inject.js");
-                });
+                //builder.MapGet("/swagger/swagger_inject.js", (context) =>
+                //{
+                //    return context.Response.SendFileAsync("swagger_inject.js");
+                //});
                 builder.MapGet("/swagger/swagger_theme.css", (context) =>
                 {
                     return context.Response.SendFileAsync("swagger_theme.css");
+                });
+                builder.MapGet("/swagger/abp.js", (context) =>
+                {
+                    return context.Response.SendFileAsync("abp.js");
+                });
+                builder.MapGet("/swagger/abp.swagger.js", (context) =>
+                {
+                    return context.Response.SendFileAsync("abp.swagger.js");
                 });
             });
             app.UseConfiguredEndpoints();

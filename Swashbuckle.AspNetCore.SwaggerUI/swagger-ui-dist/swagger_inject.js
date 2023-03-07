@@ -1,4 +1,4 @@
-﻿
+
 function Toast(msg, duration) {
     duration = isNaN(duration) ? 3000 : duration;
     var m = document.createElement('div');
