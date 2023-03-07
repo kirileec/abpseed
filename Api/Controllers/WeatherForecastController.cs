@@ -1,3 +1,4 @@
+using App.Api;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -8,7 +9,7 @@ namespace Api.Controllers
     /// </summary>
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastController : BaseController
     {
         private static readonly string[] Summaries = new[]
         {
@@ -32,6 +33,16 @@ namespace Api.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        /// <summary>
+        /// 测试Json返回参数
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult Text() 
+        {
+            return JsonData("测试内容");
         }
     }
 }
