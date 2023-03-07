@@ -23,7 +23,7 @@ namespace Volo.Abp.Swagger.Microsoft.AspNetCore.Builder
                 options.InjectJavascript("ui/abp.js");
                 options.InjectJavascript("ui/abp.swagger.js");
                 options.IndexStream = () => resolver.Resolver();
-
+                
                 setupAction?.Invoke(options);
             });
         }
