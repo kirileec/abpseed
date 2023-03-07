@@ -70,13 +70,13 @@ namespace AbpSeed
             {
                
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Abp API");
-                options.InjectJavascript("swagger_inject.js");
-                options.InjectStylesheet("swagger_theme.css");
+                //options.InjectJavascript("swagger_inject.js");
+                //options.InjectStylesheet("swagger_theme.css");
                 options.EnableFilter();
                 options.EnableTryItOutByDefault();
                 options.DisplayRequestDuration();
-                options.DefaultModelsExpandDepth(-1);
-                options.EnableDeepLinking();
+                //options.DefaultModelsExpandDepth(-1);
+                //options.EnableDeepLinking();
 
 
             });
