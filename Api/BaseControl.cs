@@ -9,10 +9,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Volo.Abp.Users;
 
 namespace App.Api
 {
+    [Route("api")]
     public abstract class BaseController : Controller
     {
 
@@ -22,16 +22,25 @@ namespace App.Api
         public const string CODE_UNAUTH = "401";
         public const string CODE_UNPERMISSION = "403";
         public const string CODE_ERROR = "ERROR";
+        protected BaseResponse<object> JsonSuccess()
+        {
+            return new BaseResponse<object>
+            {
+                code = CODE_SUCCESS,
+                data = null,
+            };
+        }
         /// <summary>
         /// 返回成功
         /// </summary>
         /// <returns></returns>
-        protected JsonResult JsonSuccess()
+        protected BaseResponse<T> JsonSuccess<T>(T data=default(T))
         {
-            return Json(new BaseResponse<object>
+            return new BaseResponse<T>
             {
-                code = CODE_SUCCESS
-            });
+                code = CODE_SUCCESS,
+                data = data,
+            };
         }
         /// <summary>
         /// 返回string的json
@@ -47,13 +56,14 @@ namespace App.Api
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        protected JsonResult JsonSuccess(object data)
+        protected BaseResponse<T> JsonSuccess<T>(T data,string message = "")
         {
-            return Json(new BaseResponse<object>
+            return new BaseResponse<T>
             {
                 code = CODE_SUCCESS,
+                msg = message,
                 data = data
-            });
+            };
         }
 
         protected BaseResponse<T> Ok<T>(T data)
@@ -90,7 +100,7 @@ namespace App.Api
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        protected JsonResult JsonData(object data)
+        protected BaseResponse<T> JsonData<T>(T data)
         {
             return JsonSuccess(data);
         }
@@ -135,36 +145,7 @@ namespace App.Api
 
 
 
-        protected JsonResult HandleViewBag(dynamic viewBag)
-        {
-
-            int code = Convert1.ConvertTo<int>(ViewBag.code);
-            if (code == 0)
-            {
-                return JsonMessage(viewBag.msg);
-
-            }
-            else if (code == 1)
-            {
-                var resp = new BaseResponse<object>
-                {
-                    code = CODE_SUCCESS,
-                    data = viewBag
-                };
-                return new JsonResult(resp);
-            }
-            else
-            {
-                var resp = new BaseResponse<object>
-                {
-                    code = CODE_SUCCESS,
-                    data = viewBag
-                };
-                return new JsonResult(resp);
-            }
-
-
-        }
+        
 
 
         /// <summary>
@@ -172,13 +153,13 @@ namespace App.Api
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        protected JsonResult JsonFail(string msg)
+        protected BaseResponse<object> JsonFail(string msg)
         {
-            return Json(new BaseResponse<object>
+            return new BaseResponse<object>
             {
                 code = CODE_FAIL,
                 msg = msg
-            });
+            };
         }
         private static int GetLineNum()
         {
@@ -201,40 +182,40 @@ namespace App.Api
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        protected JsonResult JsonError(string msg)
+        protected BaseResponse<object> JsonError(string msg)
         {
-            return Json(new BaseResponse<object>
+            return new BaseResponse<object>
             {
                 code = CODE_ERROR,
                 msg = msg
-            });
+            };
         }
         /// <summary>
         /// 返回异常
         /// </summary>
         /// <param name="ex"></param>
         /// <returns></returns>
-        protected JsonResult JsonError(Exception ex)
+        protected BaseResponse<string> JsonError(Exception ex)
         {
-            return Json(new BaseResponse<string>
+            return new BaseResponse<string>
             {
                 code = CODE_ERROR,
                 msg = ex.Message,
                 data = ex.StackTrace
-            });
+            };
         }
         /// <summary>
         /// 返回失败信息
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        protected JsonResult JsonMessage(string msg)
+        protected BaseResponse<object> JsonMessage(string msg)
         {
-            return Json(new BaseResponse<object>
+            return new BaseResponse<object>
             {
                 code = CODE_SUCCESS,
                 msg = msg
-            });
+            };
         }
         #endregion
 
@@ -253,11 +234,4 @@ namespace App.Api
 
     }
 
-    public static class Convert1
-    {
-        public static T ConvertTo<T>(dynamic value)
-        {
-            return (T)Convert.ChangeType(value, typeof(T));
-        }
-    }
 }

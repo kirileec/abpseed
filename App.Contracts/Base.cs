@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace App.Contracts
 {
     [KnownType(typeof(BaseResponse<string>))]
-    public class BaseResponse<T>
+    public class BaseResponse<T>:IActionResult
     {
         public string code { get; set; }
 
@@ -20,6 +21,9 @@ namespace App.Contracts
             code = "SUCCESS";
         }
 
-
+        public Task ExecuteResultAsync(ActionContext context)
+        {
+            return Task.CompletedTask;
+        }
     }
 }
