@@ -1,3 +1,4 @@
+using AbpSeed.Abp.Swashbuckle;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Extensions.DependencyInjection;
@@ -47,7 +48,7 @@ namespace SwashbuckleSample;
     typeof(AbpAspNetCoreMvcUiBasicThemeModule),
     typeof(AbpAccountWebOpenIddictModule),
     typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpSwashbuckleModule)
+    typeof(AbpSeedSwashbuckleModule)
 )]
 public class SwashbuckleSampleHttpApiHostModule : AbpModule
 {

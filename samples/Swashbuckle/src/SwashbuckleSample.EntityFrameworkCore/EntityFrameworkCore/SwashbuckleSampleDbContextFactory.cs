@@ -19,7 +19,6 @@ public class SwashbuckleSampleDbContextFactory : IDesignTimeDbContextFactory<Swa
         //var connectionString = @$"Data Source={Path.Join(AppContext.BaseDirectory, "SwashbuckleSample.db")}";
         var builder = new DbContextOptionsBuilder<SwashbuckleSampleDbContext>()
             .UseSqlite(configuration.GetConnectionString("Default"));
-        var a = configuration.GetConnectionString("Default");
         return new SwashbuckleSampleDbContext(builder.Options);
     }
 
