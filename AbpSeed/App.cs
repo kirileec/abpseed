@@ -1,4 +1,4 @@
-﻿
+
 using Microsoft.OpenApi.Models;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
@@ -9,6 +9,9 @@ using Volo.Abp.Modularity;
 using Volo.Abp.Swagger;
 using Volo.Abp.Swagger.Microsoft.AspNetCore.Builder;
 using Volo.Abp.Swagger.Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.Caching.StackExchangeRedis;
+using Microsoft.Extensions.Caching.StackExchangeRedis;
+using Volo.Abp.Caching;
 
 namespace AbpSeed
 {
@@ -16,6 +19,8 @@ namespace AbpSeed
     [DependsOn(typeof(AbpAutofacModule))]
     [DependsOn(typeof(AbpEntityFrameworkCoreMySQLModule))]
     [DependsOn(typeof(AbpAspNetCoreMvcModule))]
+    [DependsOn(typeof(AbpCachingStackExchangeRedisModule))]
+    [DependsOn(typeof(AbpCachingModule))]
     public class App:AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
@@ -31,15 +36,25 @@ namespace AbpSeed
                     options.HideAbpEndpoints();
                     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Abp API", Version = "v1" });
                     options.DocInclusionPredicate((docName, description) => true);
-                    options.CustomSchemaIds(type => type.FullName);
-                   
-                    
+                    options.CustomSchemaIds(type => type.FullName.Replace("+","."));
+                    //options.IncludeXmlComments("App.Entities.xml");
+                    //options.IncludeXmlComments("App.Models.xml");
+
                 }
             );
             Configure<AbpDbContextOptions>(options =>
             {
                 options.UseMySQL();
             });
+            Configure<RedisCacheOptions>(options =>
+            {
+
+            });
+            Configure<AbpDistributedCacheOptions>(options =>
+            {
+                options.KeyPrefix = "App";
+            });
+
             //Configure<AbpDbConnectionOptions>(options =>
             //{
             //    options.ConnectionStrings.Default = "...";
@@ -76,7 +91,7 @@ namespace AbpSeed
                 //options.InjectJavascript("abp.swagger.js");
                 options.InjectStylesheet("swagger_theme.css");
                 options.EnableFilter();
-                options.EnableTryItOutByDefault();
+                //options.EnableTryItOutByDefault();
                 options.DisplayRequestDuration();
                 //options.DefaultModelsExpandDepth(-1);
                 //options.EnableDeepLinking();
