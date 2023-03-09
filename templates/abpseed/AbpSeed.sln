@@ -5,15 +5,11 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.AbpSeed.Main", "AbpSeed\App.AbpSeed.Main.csproj", "{A21BB9E6-4840-464C-A22C-E3E6E8ECFAC4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.EFCore.MySQL", "EFCore.MySQL\App.EFCore.MySQL.csproj", "{F5F23D02-68E7-41AE-8344-8747F9DD541E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.EFCore.MySQL", "App.EFCore.MySQL\App.EFCore.MySQL.csproj", "{F5F23D02-68E7-41AE-8344-8747F9DD541E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Contracts", "App.Contracts\App.Contracts.csproj", "{91DEB7B7-0F3F-4533-AE4E-71BA6C6C4649}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Api", "Api\App.Api.csproj", "{29DB0A3A-1C49-42AC-BF11-F1F6E89AC690}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Swagger", "Volo.Abp.Swagger\Volo.Abp.Swagger.csproj", "{7C616E07-0E4E-4B24-AF6C-25EE9EC5DC65}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swashbuckle.AspNetCore.SwaggerUI", "Swashbuckle.AspNetCore.SwaggerUI\Swashbuckle.AspNetCore.SwaggerUI.csproj", "{29D9289F-C6B4-4D59-BFFE-08AAE541D40A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Entities", "App.Entities\App.Entities.csproj", "{6F926BBB-941B-4F48-B6F5-40AE36A248EC}"
 EndProject
@@ -24,6 +20,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Services", "App.Services\App.Services.csproj", "{B200FB7C-7CFC-4387-8C9A-2570E77713C4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Extensions", "App.Extensions\App.Extensions.csproj", "{21F1115C-575F-4DDF-BB84-77A6EBF050A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.SwaggerUI.Fix", "App.SwaggerUI.Fix\App.SwaggerUI.Fix.csproj", "{CA389F98-BF4B-4688-8EAF-077F8A5EDF64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,14 +45,6 @@ Global
 		{29DB0A3A-1C49-42AC-BF11-F1F6E89AC690}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29DB0A3A-1C49-42AC-BF11-F1F6E89AC690}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29DB0A3A-1C49-42AC-BF11-F1F6E89AC690}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C616E07-0E4E-4B24-AF6C-25EE9EC5DC65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C616E07-0E4E-4B24-AF6C-25EE9EC5DC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C616E07-0E4E-4B24-AF6C-25EE9EC5DC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C616E07-0E4E-4B24-AF6C-25EE9EC5DC65}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29D9289F-C6B4-4D59-BFFE-08AAE541D40A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29D9289F-C6B4-4D59-BFFE-08AAE541D40A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29D9289F-C6B4-4D59-BFFE-08AAE541D40A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29D9289F-C6B4-4D59-BFFE-08AAE541D40A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F926BBB-941B-4F48-B6F5-40AE36A248EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F926BBB-941B-4F48-B6F5-40AE36A248EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F926BBB-941B-4F48-B6F5-40AE36A248EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,6 +65,10 @@ Global
 		{21F1115C-575F-4DDF-BB84-77A6EBF050A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21F1115C-575F-4DDF-BB84-77A6EBF050A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21F1115C-575F-4DDF-BB84-77A6EBF050A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA389F98-BF4B-4688-8EAF-077F8A5EDF64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA389F98-BF4B-4688-8EAF-077F8A5EDF64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA389F98-BF4B-4688-8EAF-077F8A5EDF64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA389F98-BF4B-4688-8EAF-077F8A5EDF64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

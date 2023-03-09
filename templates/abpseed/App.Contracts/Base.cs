@@ -9,21 +9,13 @@ using System.Threading.Tasks;
 namespace App.Contracts
 {
     [KnownType(typeof(BaseResponse<string>))]
-    public class BaseResponse<T>:IActionResult
+    public class BaseResponse<T>:ActionResult
     {
         public string code { get; set; }
 
         public decimal count { get; set; }
         public string msg { get; set; }
-        public T data { get; set; }
-        public BaseResponse()
-        {
-            code = "SUCCESS";
-        }
+        public T? data { get; set; }
 
-        public Task ExecuteResultAsync(ActionContext context)
-        {
-            return Task.CompletedTask;
-        }
     }
 }

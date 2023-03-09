@@ -1,5 +1,4 @@
-﻿using Abp.ObjectMapping;
-using App.EFCore.MySQL;
+﻿using App.EFCore.MySQL;
 using App.Entities;
 using App.Models.Request.Rbac.Icon;
 using App.Models.Request.ViewModels.Rbac.DncIcon;
@@ -11,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Volo.Abp.ObjectMapping;
 
 namespace App.Api.Controllers.Api
 {
@@ -70,7 +70,7 @@ namespace App.Api.Controllers.Api
                 {
                     return JsonFail("图标已存在");
                 }
-                var entity = _mapper.Map<DncIcon>(model);
+                var entity = _mapper.Map<IconCreateViewModel,DncIcon>(model);
                 entity.CreatedOn = DateTime.Now;
                 //entity.CreatedByUserGuid = AuthContextService.CurrentUser.Guid;
                 //entity.CreatedByUserName = AuthContextService.CurrentUser.DisplayName;

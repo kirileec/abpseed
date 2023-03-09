@@ -2,18 +2,18 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Volo.Abp.AspNetCore.Mvc;
 
 namespace App.Api
 {
     [Route("api/[controller]/[action]")]
-    public abstract class BaseController : Controller
+    public abstract class BaseController : AbpController
     {
 
         #region 返回
@@ -22,7 +22,7 @@ namespace App.Api
         public const string CODE_UNAUTH = "401";
         public const string CODE_UNPERMISSION = "403";
         public const string CODE_ERROR = "ERROR";
-        protected BaseResponse<object> JsonSuccess()
+        protected IActionResult JsonSuccess()
         {
             return new BaseResponse<object>
             {
@@ -34,7 +34,7 @@ namespace App.Api
         /// 返回成功
         /// </summary>
         /// <returns></returns>
-        protected BaseResponse<T> JsonSuccess<T>(T data=default(T))
+        protected IActionResult JsonSuccess<T>(T data=default(T))
         {
             return new BaseResponse<T>
             {
@@ -47,9 +47,9 @@ namespace App.Api
         /// </summary>
         /// <param name="result"></param>
         /// <returns></returns>
-        protected string JsonString(object result)
+        protected IActionResult JsonString(object result)
         {
-            return JsonConvert.SerializeObject(result);
+            return new JsonResult(result);
         }
         /// <summary>
         /// 返回数据
@@ -100,7 +100,7 @@ namespace App.Api
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        protected BaseResponse<T> JsonData<T>(T data)
+        protected IActionResult JsonData<T>(T data)
         {
             return JsonSuccess(data);
         }
@@ -110,7 +110,7 @@ namespace App.Api
         /// <param name="count"></param>
         /// <param name="list"></param>
         /// <returns></returns>
-        protected JsonResult JsonList(decimal count, IEnumerable list)
+        protected IActionResult JsonList(decimal count, IEnumerable list)
         {
             return Json(new BaseResponse<IEnumerable>
             {
@@ -119,7 +119,7 @@ namespace App.Api
                 data = list
             });
         }
-        protected JsonResult JsonList(int count, IEnumerable list)
+        protected IActionResult JsonList(int count, IEnumerable list)
         {
             return Json(new BaseResponse<IEnumerable>
             {
@@ -133,7 +133,7 @@ namespace App.Api
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        protected JsonResult JsonList(IEnumerable list)
+        protected IActionResult JsonList(IEnumerable list)
         {
             return Json(new BaseResponse<IEnumerable>
             {

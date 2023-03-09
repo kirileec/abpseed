@@ -1,5 +1,4 @@
-﻿using Abp.ObjectMapping;
-
+﻿
 using App.Entities.Enums;
 using App.Entities;
 using App.Models.Request.Rbac.User;
@@ -12,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using App.EFCore.MySQL;
+using Volo.Abp.ObjectMapping;
 
 namespace App.Api.Controllers.Api
 {
@@ -55,7 +55,7 @@ namespace App.Api.Controllers.Api
                 }
                 var list = query.Paged(payload.CurrentPage, payload.PageSize).ToList();
                 var totalCount = query.Count();
-                var data = list.Select(_mapper.Map<UserJsonModel>);
+                var data = list.Select(_mapper.Map<DncUser,UserJsonModel>);
 
                 return JsonList(totalCount, data);
             }
@@ -83,7 +83,7 @@ namespace App.Api.Controllers.Api
    
                     return JsonFail("登录名已存在");
                     }
-                    var entity = _mapper.Map<DncUser>(model);
+                    var entity = _mapper.Map<UserCreateViewModel,DncUser>(model);
                     entity.CreatedOn = DateTime.Now;
                     entity.Guid = Guid.NewGuid();
                     entity.Status = model.Status;
@@ -107,7 +107,7 @@ namespace App.Api.Controllers.Api
                 {
                     var entity = _dbContext.DncUser.FirstOrDefault(x => x.Guid == guid);
 
-                return JsonData(_mapper.Map<UserEditViewModel>(entity));
+                return JsonData(_mapper.Map<DncUser,UserEditViewModel>(entity));
                 }
             }
 

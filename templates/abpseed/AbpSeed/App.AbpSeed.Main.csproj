@@ -18,16 +18,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Api\App.Api.csproj" />
-    <ProjectReference Include="..\Volo.Abp.Swagger\Volo.Abp.Swagger.csproj" />
+    <ProjectReference Include="..\App.EFCore.MySQL\App.EFCore.MySQL.csproj" />
+    <ProjectReference Include="..\App.SwaggerUI.Fix\App.SwaggerUI.Fix.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="abp.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="abp.swagger.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="swagger_theme.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
