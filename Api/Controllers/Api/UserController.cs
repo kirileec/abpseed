@@ -1,5 +1,5 @@
 ﻿using Abp.ObjectMapping;
-using AbpSeed;
+
 using App.Entities.Enums;
 using App.Entities;
 using App.Models.Request.Rbac.User;
@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using App.EFCore.MySQL;
 
 namespace App.Api.Controllers.Api
 {
@@ -18,9 +19,12 @@ namespace App.Api.Controllers.Api
     [Route("api/v1/rbac/[controller]/[action]")]
     public class UserController : BaseController
     {
-        public DBContext _dbContext { get; set; }
+        private readonly MySQLDBContext _dbContext;
         public IObjectMapper _mapper { get; set; }
-
+        public UserController(MySQLDBContext context)
+        {
+            _dbContext = context;
+        }
 
         /// <summary>
         /// 

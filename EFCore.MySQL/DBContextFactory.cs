@@ -1,4 +1,4 @@
-﻿using AbpSeed;
+﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
@@ -8,18 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EFCore.MySQL
+namespace App.EFCore.MySQL
 {
-    public class DBContextFactory : IDesignTimeDbContextFactory<DBContext>
+    public class DBContextFactory : IDesignTimeDbContextFactory<MySQLDBContext>
     {
-        public DBContext CreateDbContext(string[] args)
+        public MySQLDBContext CreateDbContext(string[] args)
         {
             var configuration = BuildConfiguration();
 
-            var builder = new DbContextOptionsBuilder<DBContext>()
+            var builder = new DbContextOptionsBuilder<MySQLDBContext>()
                 .UseMySql(configuration.GetConnectionString("MySQLConnection"),ServerVersion.AutoDetect(configuration.GetConnectionString("MySQLConnection")));
 
-            return new DBContext(builder.Options);
+            return new MySQLDBContext(builder.Options);
         }
         private static IConfigurationRoot BuildConfiguration()
         {

@@ -1,4 +1,5 @@
-﻿using AbpSeed;
+﻿
+using App.EFCore.MySQL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace App.Api.Controllers.Api
 {
+    public class MenuController:BaseController 
     {
-        private readonly DBContext _dbContext;
+        private readonly MySQLDBContext _dbContext;
 
-        public MenuController(DBContext dBContext)
+        public MenuController(MySQLDBContext dBContext)
         {
             _dbContext = dBContext;
         }

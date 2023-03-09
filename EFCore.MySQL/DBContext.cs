@@ -4,12 +4,41 @@ using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
 
-namespace AbpSeed
+namespace App.EFCore.MySQL
 {
     [ConnectionStringName("MySQLConnection")]
-    public class DBContext : AbpDbContext<DBContext>
+    public class MySQLDBContext : AbpDbContext<MySQLDBContext>
     {
-        public DBContext(DbContextOptions<DBContext> options) : base(options)
+        /// <summary>
+        /// 用户
+        /// </summary>
+        public DbSet<DncUser> DncUser { get; set; }
+        /// <summary>
+        /// 角色
+        /// </summary>
+        public DbSet<DncRole> DncRole { get; set; }
+        /// <summary>
+        /// 菜单
+        /// </summary>
+        public DbSet<DncMenu> DncMenu { get; set; }
+        /// <summary>
+        /// 图标
+        /// </summary>
+        public DbSet<DncIcon> DncIcon { get; set; }
+
+        /// <summary>
+        /// 用户-角色多对多映射
+        /// </summary>
+        public DbSet<DncUserRoleMapping> DncUserRoleMapping { get; set; }
+        /// <summary>
+        /// 权限
+        /// </summary>
+        public DbSet<DncPermission> DncPermission { get; set; }
+        /// <summary>
+        /// 角色-权限多对多映射
+        /// </summary>
+        public DbSet<DncRolePermissionMapping> DncRolePermissionMapping { get; set; }
+        public MySQLDBContext(DbContextOptions<MySQLDBContext> options) : base(options)
         {
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -75,35 +104,7 @@ namespace AbpSeed
 
             base.OnModelCreating(modelBuilder);
         }
-        /// <summary>
-        /// 用户
-        /// </summary>
-        public DbSet<DncUser> DncUser { get; set; }
-        /// <summary>
-        /// 角色
-        /// </summary>
-        public DbSet<DncRole> DncRole { get; set; }
-        /// <summary>
-        /// 菜单
-        /// </summary>
-        public DbSet<DncMenu> DncMenu { get; set; }
-        /// <summary>
-        /// 图标
-        /// </summary>
-        public DbSet<DncIcon> DncIcon { get; set; }
-
-        /// <summary>
-        /// 用户-角色多对多映射
-        /// </summary>
-        public DbSet<DncUserRoleMapping> DncUserRoleMapping { get; set; }
-        /// <summary>
-        /// 权限
-        /// </summary>
-        public DbSet<DncPermission> DncPermission { get; set; }
-        /// <summary>
-        /// 角色-权限多对多映射
-        /// </summary>
-        public DbSet<DncRolePermissionMapping> DncRolePermissionMapping { get; set; }
+        
 
     }
 }

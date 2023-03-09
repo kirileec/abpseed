@@ -12,20 +12,24 @@ using Volo.Abp.Swagger.Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Caching.StackExchangeRedis;
 using Microsoft.Extensions.Caching.StackExchangeRedis;
 using Volo.Abp.Caching;
+using App.EFCore.MySQL;
 
 namespace AbpSeed
 {
-    [DependsOn(typeof(AbpSwashbuckleModule))]
-    [DependsOn(typeof(AbpAutofacModule))]
-    [DependsOn(typeof(AbpEntityFrameworkCoreMySQLModule))]
-    [DependsOn(typeof(AbpAspNetCoreMvcModule))]
-    [DependsOn(typeof(AbpCachingStackExchangeRedisModule))]
-    [DependsOn(typeof(AbpCachingModule))]
+    [DependsOn(typeof(AbpAspNetCoreMvcModule),
+        
+        typeof(AbpAutofacModule),
+        typeof(AbpEntityFrameworkCoreMySQLModule),
+        typeof(AbpSwashbuckleModule),
+        typeof(AbpCachingStackExchangeRedisModule),
+        typeof(AbpCachingModule)
+        )]
     public class App:AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             var services = context.Services;
+            services.AddAbpDbContext<MySQLDBContext>();
 
             //... other configurations.
             services.AddAbpSwaggerGen(
@@ -44,7 +48,11 @@ namespace AbpSeed
             );
             Configure<AbpDbContextOptions>(options =>
             {
-                options.UseMySQL();
+                
+                options.Configure<MySQLDBContext>(options =>
+                {
+                    options.UseMySQL();
+                });
             });
             Configure<RedisCacheOptions>(options =>
             {

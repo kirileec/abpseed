@@ -1,5 +1,5 @@
 ﻿using Abp.ObjectMapping;
-using AbpSeed;
+using App.EFCore.MySQL;
 using App.Entities;
 using App.Models.Request.Rbac.Icon;
 using App.Models.Request.ViewModels.Rbac.DncIcon;
@@ -17,11 +17,11 @@ namespace App.Api.Controllers.Api
     [ApiController]
     public class IconController:BaseController
     {
-        private readonly DBContext _dbContext;
+        private readonly MySQLDBContext _dbContext;
         private readonly IObjectMapper _mapper;
-        public DBContext _dbcontext1 { get; set; }
+        public MySQLDBContext _dbcontext1 { get; set; }
 
-        public IconController(DBContext dBContext,IObjectMapper mapper)
+        public IconController(MySQLDBContext dBContext,IObjectMapper mapper)
         {
             _dbContext = dBContext;
             _mapper = mapper;
