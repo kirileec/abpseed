@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>AbpSeed.Zero</RootNamespace>
+		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="$(VoloAbpPackageVersion)" />
+		<PackageReference Include="Volo.Abp.BackgroundJobs.Domain.Shared" Version="$(VoloAbpPackageVersion)" />
+		<PackageReference Include="Volo.Abp.AuditLogging.Domain.Shared" Version="$(VoloAbpPackageVersion)" />
+		<PackageReference Include="Volo.Abp.TenantManagement.Domain.Shared" Version="$(VoloAbpPackageVersion)" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="$(VoloAbpPackageVersion)" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="$(VoloAbpPackageVersion)" />
+		<PackageReference Include="Volo.Abp.SettingManagement.Domain.Shared" Version="$(VoloAbpPackageVersion)" />
+		<PackageReference Include="Volo.Abp.OpenIddict.Domain.Shared" Version="$(VoloAbpPackageVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="SharpAbp.Abp.Identity.Domain.Shared" Version="$(SharpAbpPackageVersion)" />
+		<PackageReference Include="SharpAbp.Abp.OpenIddict.Domain.Shared" Version="$(SharpAbpPackageVersion)" />
+		<PackageReference Include="SharpAbp.Abp.AuditLogging.Domain.Shared" Version="$(SharpAbpPackageVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Localization\Zero\*.json" />
+		<Content Remove="Localization\Zero\*.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="$(MicrosoftPackageVersion)" />
+	</ItemGroup>
+
+</Project>
