@@ -5,13 +5,16 @@
     <VoloAbpPackageVersion>7.0.3</VoloAbpPackageVersion>
 
     <!-- All Microsoft EntityFrameworkCore packages -->
-    <MicrosoftEntityFrameworkCorePackageVersion>7.0.1</MicrosoftEntityFrameworkCorePackageVersion>
+    <MicrosoftEntityFrameworkCorePackageVersion>7.0.2</MicrosoftEntityFrameworkCorePackageVersion>
 
     <!-- All Microsoft AspNetCore packages -->
     <MicrosoftAspNetCorePackageVersion>7.0.0</MicrosoftAspNetCorePackageVersion>
 
     <!-- All Microsoft packages -->
     <MicrosoftPackageVersion>7.0.*</MicrosoftPackageVersion>
+	
+	<!--Sharp ABP packages-->
+    <SharpAbpPackageVersion>2.6.7</SharpAbpPackageVersion>
 
     <!-- Microsoft.NET.Test.Sdk https://www.nuget.org/packages/Microsoft.NET.Test.Sdk -->
     <MicrosoftNETTestSdkPackageVersion>17.5.0</MicrosoftNETTestSdkPackageVersion>

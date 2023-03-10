@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5338B975-826
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6BA2349B-FD58-4C43-9BCF-705745E13AD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbpSeed.Abp.Swashbuckle", "src\AbpSeed.Abp.Swashbuckle\AbpSeed.Abp.Swashbuckle.csproj", "{2B7A5120-BD6C-4002-93E5-FAAEEBA01583}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbpSeed.Abp.Swashbuckle", "src\AbpSeed.Abp.Swashbuckle\AbpSeed.Abp.Swashbuckle.csproj", "{2B7A5120-BD6C-4002-93E5-FAAEEBA01583}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbpSeed.Abp.Swashbuckle.Versioning", "src\AbpSeed.Abp.Swashbuckle.Versioning\AbpSeed.Abp.Swashbuckle.Versioning.csproj", "{BFC00D63-D691-422A-82AE-79C591572D59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,11 +21,16 @@ Global
 		{2B7A5120-BD6C-4002-93E5-FAAEEBA01583}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B7A5120-BD6C-4002-93E5-FAAEEBA01583}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B7A5120-BD6C-4002-93E5-FAAEEBA01583}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFC00D63-D691-422A-82AE-79C591572D59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC00D63-D691-422A-82AE-79C591572D59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFC00D63-D691-422A-82AE-79C591572D59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC00D63-D691-422A-82AE-79C591572D59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2B7A5120-BD6C-4002-93E5-FAAEEBA01583} = {5338B975-8264-40E9-9DB2-681A4746DA66}
+		{BFC00D63-D691-422A-82AE-79C591572D59} = {5338B975-8264-40E9-9DB2-681A4746DA66}
 	EndGlobalSection
 EndGlobal
