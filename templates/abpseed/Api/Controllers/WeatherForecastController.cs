@@ -1,6 +1,8 @@
 using App.Api;
 using App.Contracts;
+using App.EFCore.MySQL;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace Api.Controllers
@@ -12,6 +14,8 @@ namespace Api.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : BaseController
     {
+        private readonly MySQLDBContext _dbContext;
+
         private static readonly string[] Summaries = new[]
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -19,8 +23,9 @@ namespace Api.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IServiceProvider context)
         {
+            _dbContext = context.GetRequiredService<MySQLDBContext>();
             _logger = logger;
         }
 

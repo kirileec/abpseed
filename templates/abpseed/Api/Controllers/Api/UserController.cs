@@ -16,7 +16,7 @@ using Volo.Abp.ObjectMapping;
 namespace App.Api.Controllers.Api
 {
     [ApiController]
-    [Route("api/v1/rbac/[controller]/[action]")]
+
     public class UserController : BaseController
     {
         private readonly MySQLDBContext _dbContext;

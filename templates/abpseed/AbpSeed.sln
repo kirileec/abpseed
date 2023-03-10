@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Services", "App.Service
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Extensions", "App.Extensions\App.Extensions.csproj", "{21F1115C-575F-4DDF-BB84-77A6EBF050A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.SwaggerUI.Fix", "App.SwaggerUI.Fix\App.SwaggerUI.Fix.csproj", "{CA389F98-BF4B-4688-8EAF-077F8A5EDF64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.SwaggerUI.Fix", "App.SwaggerUI.Fix\App.SwaggerUI.Fix.csproj", "{CA389F98-BF4B-4688-8EAF-077F8A5EDF64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{BD2FFED0-6773-4B02-BB38-51C693C9D8BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{CA389F98-BF4B-4688-8EAF-077F8A5EDF64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA389F98-BF4B-4688-8EAF-077F8A5EDF64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA389F98-BF4B-4688-8EAF-077F8A5EDF64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD2FFED0-6773-4B02-BB38-51C693C9D8BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD2FFED0-6773-4B02-BB38-51C693C9D8BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD2FFED0-6773-4B02-BB38-51C693C9D8BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD2FFED0-6773-4B02-BB38-51C693C9D8BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
