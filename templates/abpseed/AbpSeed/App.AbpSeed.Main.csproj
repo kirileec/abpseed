@@ -10,9 +10,9 @@
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="7.0.3" />
     <PackageReference Include="Volo.Abp.Autofac" Version="7.0.3" />
     <PackageReference Include="Volo.Abp.AutoMapper" Version="7.0.3" />
-	  <PackageReference Include="Volo.Abp.Caching" Version="7.0.3" />
-	  <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="7.0.3" />
-	  <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="7.0.3" />
+    <PackageReference Include="Volo.Abp.Caching" Version="7.0.3" />
+    <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="7.0.3" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="7.0.3" />
     <PackageReference Include="Volo.Abp.EntityFrameworkCore.MySQL" Version="7.0.3" />
   </ItemGroup>
 
@@ -20,12 +20,13 @@
     <ProjectReference Include="..\Api\App.Api.csproj" />
     <ProjectReference Include="..\App.EFCore.MySQL\App.EFCore.MySQL.csproj" />
     <ProjectReference Include="..\App.SwaggerUI.Fix\App.SwaggerUI.Fix.csproj" />
+    <ProjectReference Include="..\..\..\framework\src\AbpSeed.Abp.Swashbuckle\AbpSeed.Abp.Swashbuckle.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
+  <!-- <ItemGroup>
     <None Update="swagger_theme.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
+  </ItemGroup> -->
 
 </Project>

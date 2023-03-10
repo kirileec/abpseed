@@ -11,16 +11,18 @@ using Volo.Abp.Caching;
 using App.EFCore.MySQL;
 using App.SwaggerUI.Fix;
 using Microsoft.OpenApi.Models;
+using AbpSeed.Abp.Swashbuckle;
 
 namespace AbpSeed
 {
     [DependsOn(
         typeof(AbpAspNetCoreMvcModule),
-        typeof(AbpAutofacModule), //ÒÀÀµ×¢Èë
+        typeof(AbpAutofacModule), //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½
         typeof(AbpEntityFrameworkCoreMySQLModule), //mysql EFCore
-        typeof(AbpSwashbuckleModuleFixed), // ×îÐÂ°æ±¾swagger-ui
-        typeof(AbpCachingStackExchangeRedisModule), //redis»º´æ
-        typeof(AbpCachingModule) //»º´æÄ£¿é
+        typeof(AbpSwashbuckleModuleFixed), // ï¿½ï¿½ï¿½Â°æ±¾swagger-ui
+        typeof(AbpCachingStackExchangeRedisModule), //redisï¿½ï¿½ï¿½ï¿½
+        typeof(AbpCachingModule), //ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
+        typeof(AbpSeedSwashbuckleModule)
         )]
     public class App:AbpModule
     {
@@ -70,10 +72,10 @@ namespace AbpSeed
                 app.UseExceptionHandler("/Error");  
             }
             app.UseSwagger();
-            app.UseAbpSwaggerUI(options =>
+            app.UseAbpSeedSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Abp API");
-                options.InjectStylesheet("swagger_theme.css");
+                //options.InjectStylesheet("swagger_theme.css");
                 options.EnableFilter();
                 //options.EnableTryItOutByDefault();
                 options.DisplayRequestDuration();
@@ -87,10 +89,10 @@ namespace AbpSeed
             app.UseRouting();
             app.UseEndpoints(builder =>
             {
-                builder.MapGet("/swagger/swagger_theme.css", (context) =>
-                {
-                    return context.Response.SendFileAsync("swagger_theme.css");
-                });
+                // builder.MapGet("/swagger/swagger_theme.css", (context) =>
+                // {
+                //     return context.Response.SendFileAsync("swagger_theme.css");
+                // });
             });
             app.UseConfiguredEndpoints();
         }

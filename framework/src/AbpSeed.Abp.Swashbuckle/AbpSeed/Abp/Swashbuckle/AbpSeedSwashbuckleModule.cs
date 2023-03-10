@@ -10,12 +10,12 @@ namespace AbpSeed.Abp.Swashbuckle
     public class AbpSeedSwashbuckleModule : AbpModule
     {
 
-        // public override void ConfigureServices(ServiceConfigurationContext context)
-        // {
-        //     Configure<AbpVirtualFileSystemOptions>(options =>
-        //     {
-        //         options.FileSets.AddEmbedded<AbpSeedSwashbuckleModule>();
-        //     });
-        // }
+        public override void ConfigureServices(ServiceConfigurationContext context)
+        {
+            Configure<AbpVirtualFileSystemOptions>(options =>
+            {
+                options.FileSets.AddEmbedded<AbpSeedSwashbuckleModule>();
+            });
+        }
     }
 }

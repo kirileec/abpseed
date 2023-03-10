@@ -19,4 +19,9 @@
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<None Remove="wwwroot\swagger\ui\swagger_theme.css" />
+		<EmbeddedResource Include="wwwroot\swagger\ui\swagger_theme.css" />
+	</ItemGroup>
+
 </Project>
